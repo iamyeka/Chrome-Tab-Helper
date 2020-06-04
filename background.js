@@ -12,17 +12,14 @@ function copyCurrentTabFunc() {
 
 chrome.runtime.onInstalled.addListener(function () {
 
-    chrome.contextMenus.create({title: "Tab Helper", id: "0"});
-    chrome.contextMenus.create({
-        title: "复制当前Tab",
-        id: "复制当前Tab",
-        parentId: "0"
-    });
+    chrome.contextMenus.create({title: "复制当前Tab", id: "0"});
 
     chrome.contextMenus.onClicked.addListener(function callback(info, tab) {
-        if (info.menuItemId === "复制当前Tab") {
-            copyCurrentTabFunc();
-        }
+        copyCurrentTabFunc();
+    });
+
+    chrome.browserAction.onClicked.addListener(function(tab) {
+        copyCurrentTabFunc();
     });
 
 });
