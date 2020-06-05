@@ -2,7 +2,7 @@
   "name": "Tab Helper",
   "version": "1.0",
   "description": "helper for the tab operation",
-  "permissions": ["activeTab", "history", "tabs", "contextMenus"],
+  "permissions": ["activeTab", "contextMenus"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
