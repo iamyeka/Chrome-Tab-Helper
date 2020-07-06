@@ -4,22 +4,16 @@
 
 'use strict';
 
-function copyCurrentTabFunc() {
-    chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-        chrome.tabs.duplicate(tabs[0].id);
-    });
-}
-
 chrome.runtime.onInstalled.addListener(function () {
 
     chrome.contextMenus.create({title: "复制当前Tab", id: "0"});
 
     chrome.contextMenus.onClicked.addListener(function callback(info, tab) {
-        copyCurrentTabFunc();
+        chrome.tabs.duplicate(tab.id);
     });
 
     chrome.browserAction.onClicked.addListener(function(tab) {
-        copyCurrentTabFunc();
+        chrome.tabs.duplicate(tab.id);
     });
 
 });

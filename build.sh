@@ -1,0 +1,1 @@
+zip -r Tab-Helper.zip images/ background.js manifest.json
